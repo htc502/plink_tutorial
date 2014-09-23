@@ -46,3 +46,23 @@
   plink --file hapmap1 --make-bed --out hapmap1  
   ![a bed and a bim and a fam file generated](./note_imgs/make_bed.png)  
 
+* working with binart file
+  plink --bfile hapmap1
+
+* missing stats(genotyping rates)  
+  plink --bfile hapmap1 --missing --out stats_missing  
+  command above show missing rate per locus(lmissing)/individual(imissing)  
+  ![output of missing stats](./note_imgs/stats_missing.png)
+
+* allele frequency
+  plink --bfile hapmap1 --freq --within pop.phe --out alleleFreqWithinPop
+  ![frequency statics](./note_imgs/freq_stats.png)
+  here, MAF=MAC/NCHROBS
+
+* association test
+  plink --bfile hapmap1 --assoc --out as1
+  ![here comes the assoc result](./note_imgs/assoc_test.png)  
+  to correct for multiple testing:  
+  plink --bfile hapmap1 --assoc --adjust --out as1.adj  
+  ![association test result adjusted for multiple test](./note_imgs/assoc_adj.png)
+
