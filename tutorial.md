@@ -1,4 +1,4 @@
-# tutorial from the [official website](http://pngu.mgh.harvad.edu/~prucell/plink/tutorials.shtml) of plink  
+# tutorial from the [official website](http://pngu.mgh.harvard.edu/~prucell/plink/tutorials.shtml) of plink  
 
 * about plink data file format
   * prj.map
@@ -8,7 +8,7 @@
 	- genetic distance
 	  this field is excluded by the command flag __--map3__
 		  plink --file mydata --map3
-	- postion
+	- position
 	here follows an example of a map file:
 	![example map file](./note_imgs/map_file.png)
 	
@@ -21,7 +21,7 @@
 		  - maternal ID  
 		  - sex  
 		  - phenotype  
-			+ qutantitive or categorial;one and only one  
+			+ quantitative or categorical;one and only one  
 			+ -9, 0, 1,2 encoded by default; if 0/1 coded, use:  
 			  plink --file mydata --1  
 		- snp information(genotypes)  
@@ -31,7 +31,7 @@
 		  - --no-fid  
 			no family ID column, all samples will have the sample fid  
 		  - --no-parents  
-			paternal and mathernal columns omitted  
+			paternal and maternal columns omitted  
 		  - --no-sex: all samples will have missing sex code  
 		  - --no-pheno  
 		![the ped file](./note_imgs/ped_file.png)
@@ -46,7 +46,7 @@
   plink --file hapmap1 --make-bed --out hapmap1  
   ![a bed and a bim and a fam file generated](./note_imgs/make_bed.png)  
 
-* working with binart file
+* working with binary file
   plink --bfile hapmap1
 
 * missing stats(genotyping rates)  
@@ -65,4 +65,9 @@
   to correct for multiple testing:  
   plink --bfile hapmap1 --assoc --adjust --out as1.adj  
   ![association test result adjusted for multiple test](./note_imgs/assoc_adj.png)
+
+	* about the GC column
+		* the popultation stratification is a potential influcening factor for association studies, to overcome this, [two methods are used](http://en.wikipedia.org/wiki/Population_stratification):genomic control and stuctured association.
+		* GC column is the adjusted p value after controlled for population stratification  
+		* in the log file, the genomic inflation factor larger than 1(according to the wiki page above) indicates an existance of population stratification, so be careful with it.![inflation factor](./note_imgs/assoc_adj_log.png)  
 
