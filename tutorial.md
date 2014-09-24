@@ -54,9 +54,9 @@
   command above show missing rate per locus(lmissing)/individual(imissing)  
   ![output of missing stats](./note_imgs/stats_missing.png)
 
-* allele frequency
-  plink --bfile hapmap1 --freq --within pop.phe --out alleleFreqWithinPop
-  ![frequency statics](./note_imgs/freq_stats.png)
+* allele frequency  
+  plink --bfile hapmap1 --freq --within pop.phe --out alleleFreqWithinPop  
+  ![frequency statics](./note_imgs/freq_stat.png)
   here, MAF=MAC/NCHROBS
 
 * association test
