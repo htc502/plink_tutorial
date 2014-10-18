@@ -70,4 +70,9 @@
 		* the popultation stratification is a potential influcening factor for association studies, to overcome this, [two methods are used](http://en.wikipedia.org/wiki/Population_stratification):genomic control and stuctured association.
 		* GC column is the adjusted p value after controlled for population stratification  
 		* in the log file, the genomic inflation factor larger than 1(according to the wiki page above) indicates an existance of population stratification, so be careful with it.![inflation factor](./note_imgs/assoc_adj_log.png)  
+* apply other models to the association test__
+  plink --bfile hapmap1 --model --cell 0 --snp rs2222162 --out mod1
+  note that --cell option changes the minimum number of counts in each cell of the 2-by-3 table reuqired for the analysis.
+  ![various other test models applied to the data](.note_imgs/other_models.png)
+
 
